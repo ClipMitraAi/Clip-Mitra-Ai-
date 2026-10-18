@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  clipmitra-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clipmitra-ai
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - APP_URL=${APP_URL:-http://localhost:3000}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - STORAGE_PATH=/app/data/storage
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./data/storage:/app/data/storage
+      - ./data:/app/data
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: clipmitra-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

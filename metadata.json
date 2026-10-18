@@ -1,0 +1,6 @@
+{
+  "name": "ClipMitra AI - Viral Video Shorts Generator & YouTube Auto-Uploader",
+  "description": "Convert long YouTube videos and recordings into viral vertical 9:16 Shorts, Reels, and TikToks with AI hooks, animated word-level captions, FFmpeg rendering, and automated YouTube channel publishing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

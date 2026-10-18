@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #090d16;
+    color: #f1f5f9;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Safe zone guidelines for YouTube Shorts */
+.safe-zone-overlay {
+  pointer-events: none;
+}
+
+.font-anton { font-family: 'Anton', sans-serif; }
+.font-bangers { font-family: 'Bangers', cursive; }
+.font-bebas { font-family: 'Bebas Neue', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Subtitle pop animation */
+@keyframes subtitle-pop {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop-word {
+  display: inline-block;
+  animation: subtitle-pop 0.25s ease-out;
+}
